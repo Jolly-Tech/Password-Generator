@@ -31,8 +31,11 @@ body {
 }
 
 .pw-section__output__text {
+  margin: auto 0;
+
   word-break: break-all;
 }
+
 
 .pw-section__generate-button {
   background-color: paleturquoise;

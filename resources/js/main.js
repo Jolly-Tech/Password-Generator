@@ -1,15 +1,46 @@
-const characters = 'AaBbCcDdEeFfGg1234567890ß!"§$%&/()=?,.-'
 const outputText = document.getElementById('output-text')
 const outputButton = document.getElementById('output-button')
+let timeoutID = undefined
+const copyText = document.getElementById('copy-text')
 
 
 document.getElementById('generate-button').addEventListener('click', generatePassword)
+outputText.addEventListener('click', copyPassword)
 
+function copyPassword() {
+  if (outputButton.dataset.generated === "false") {
+    return false
+  }
+
+  resetCopyText()
+
+  navigator.clipboard.writeText(outputText.innerHTML)
+
+  setCopyText()
+}
+
+function setCopyText() {
+  copyText.innerHTML = "COPIED!"
+
+  timeoutID = setTimeout(() => {
+    copyText.innerHTML = "Copy..."
+
+  }, 2000)
+}
+
+function resetCopyText() {
+  if (typeof timeoutID === 'number') {
+    clearTimeout(timeoutID)
+    copyText.innerHTML = "Copy..."
+  }
+}
 
 function generatePassword() {
   outputText.innerHTML = generate(20)
 
   outputButton.dataset.generated = "true"
+
+  resetCopyText()
 }
 
 

@@ -60,16 +60,6 @@ body {
   opacity: 1;
 }
 
-/* .pw-section__output__copy-icon * { */
-/*   height: 30px; */
-/*   min-height: 30px; */
-/**/
-/*   width: 20px; */
-/*   min-width: 20px; */
-/**/
-/*   border: 1px solid white; */
-/* } */
-
 .pw-section__generate-button {
   background-color: paleturquoise;
   color: #1e1e1e;

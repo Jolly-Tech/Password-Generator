@@ -1,5 +1,6 @@
 const characters = 'AaBbCcDdEeFfGg1234567890ß!"§$%&/()=?,.-'
 const outputText = document.getElementById('output-text')
+const outputButton = document.getElementById('output-button')
 
 
 document.getElementById('generate-button').addEventListener('click', generatePassword)
@@ -7,6 +8,8 @@ document.getElementById('generate-button').addEventListener('click', generatePas
 
 function generatePassword() {
   outputText.innerHTML = generate(20)
+
+  outputButton.dataset.generated = "true"
 }
 
 

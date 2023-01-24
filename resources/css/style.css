@@ -26,6 +26,24 @@ body {
   padding: 4rem 10%;
 }
 
+.pw-length__container {
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+}
+
+
+input[type=range].pw-length__range {
+  background-color: transparent;
+  overflow: hidden;
+  accent-color: var(--global-accent-color);
+}
+
+datalist#pw-ranges {
+  display: flex;
+  justify-content: space-between;
+}
+
 .pw-section__output {
   position: relative;
 

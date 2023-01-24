@@ -1,7 +1,13 @@
-body {
-  background-color: #1e1e1e;
+:root {
+  --global-bg-color: #1e1e1e;
+  --global-text-color: #fafafa;
+  --global-accent-color: paleturquoise;
+}
 
-  color: #fafafa;
+body {
+  background-color: var(--global-bg-color);
+
+  color: var(--global-text-color);
 }
 
 * {
@@ -65,10 +71,10 @@ body {
 }
 
 .pw-section__generate-button {
-  background-color: paleturquoise;
+  background-color: var(--global-accent-color);
   color: #1e1e1e;
   
-  border: 2px solid paleturquoise;
+  border: 2px solid var(--global-accent-color);
 
   padding: 0.75rem 2rem;
 

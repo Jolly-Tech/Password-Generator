@@ -1,11 +1,25 @@
 const outputText = document.getElementById('output-text')
 const outputButton = document.getElementById('output-button')
-let timeoutID = undefined
 const copyText = document.getElementById('copy-text')
+const pwLengthRange = document.getElementById('pw-length')
+const pwLengthIndicator = document.getElementById('pw-length__range-indicator')
+const generateButton = document.getElementById('generate-button')
+let timeoutID = undefined
 
 
-document.getElementById('generate-button').addEventListener('click', generatePassword)
+pwLengthRange.addEventListener('input', changeRangeIndicator)
+generateButton.addEventListener('click', generatePassword)
 outputText.addEventListener('click', copyPassword)
+
+init()
+
+function init() {
+  changeRangeIndicator()
+}
+
+function changeRangeIndicator() {
+  pwLengthIndicator.innerHTML = pwLengthRange.value
+}
 
 function copyPassword() {
   if (outputButton.dataset.generated === "false") {

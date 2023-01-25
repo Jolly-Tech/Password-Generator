@@ -32,6 +32,10 @@ body {
   gap: 0.55rem;
 }
 
+.pw-length__range-container {
+  display: flex;
+  gap: 2em;
+}
 
 input[type=range].pw-length__range {
   background-color: transparent;

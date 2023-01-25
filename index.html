@@ -13,13 +13,11 @@
   <div class="pw-section">
     <div class="pw-length__container">
       <label class="pw-length__label" for="">Password length</label>
-      <input id="pw-length" type="range" name="pw-length" class="pw-length__range" min="8" max="20" list="pw-ranges"
-        autocomplete="off">
-      <datalist id="pw-ranges">
-        <option value="8" label="8"></option>
-        <option value="14" label="14"></option>
-        <option value="20" label="20"></option>
-      </datalist>
+      <div class="pw-length__range-container">
+        <input id="pw-length" type="range" name="pw-length" class="pw-length__range" min="8" max="20"
+          autocomplete="off">
+        <span id="pw-length__range-indicator">8</span>
+      </div>
 
     </div>
     <button id="output-button" data-generated="false" class="pw-section__output">

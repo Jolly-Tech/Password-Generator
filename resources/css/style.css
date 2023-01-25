@@ -43,9 +43,19 @@ input[type=range].pw-length__range {
   accent-color: var(--global-accent-color);
 }
 
+ /* TODO delete */
 datalist#pw-ranges {
   display: flex;
   justify-content: space-between;
+}
+
+.pw-character__container {
+  display: flex;
+  gap: 1rem;
+}
+
+.pw-character__checkbox {
+  accent-color: var(--global-accent-color);
 }
 
 .pw-section__output {

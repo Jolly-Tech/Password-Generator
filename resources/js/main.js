@@ -61,7 +61,13 @@ function generatePassword() {
 
 
 function generate(length) {
-  let pattern = /[a-zA-Z0-9_\-\+\.]/
+  let addPatternNumerical = document.getElementById('pw-character__numerical').checked
+  let addPatternSpecial = document.getElementById('pw-character__special').checked
+
+  let patternNumerical = addPatternNumerical ? "0-9" : ""
+  let patternSpecial = addPatternSpecial ? "_\.\,\!\?\+\-\=" : ""
+
+  let pattern = new RegExp("[a-zA-Z" + patternNumerical + patternSpecial + "]")
 
   return Array.apply(null, { 'length': length })
     .map(function() {

@@ -50,7 +50,9 @@ function resetCopyText() {
 }
 
 function generatePassword() {
-  outputText.innerHTML = generate(20)
+  let length = Number(pwLengthRange.value)
+
+  outputText.innerHTML = generate(length)
 
   outputButton.dataset.generated = "true"
 

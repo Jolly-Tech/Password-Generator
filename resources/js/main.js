@@ -1,11 +1,25 @@
 const outputText = document.getElementById('output-text')
 const outputButton = document.getElementById('output-button')
-let timeoutID = undefined
 const copyText = document.getElementById('copy-text')
+const pwLengthRange = document.getElementById('pw-length')
+const pwLengthIndicator = document.getElementById('pw-length__range-indicator')
+const generateButton = document.getElementById('generate-button')
+let timeoutID = undefined
 
 
-document.getElementById('generate-button').addEventListener('click', generatePassword)
+pwLengthRange.addEventListener('input', changeRangeIndicator)
+generateButton.addEventListener('click', generatePassword)
 outputText.addEventListener('click', copyPassword)
+
+init()
+
+function init() {
+  changeRangeIndicator()
+}
+
+function changeRangeIndicator() {
+  pwLengthIndicator.innerHTML = pwLengthRange.value
+}
 
 function copyPassword() {
   if (outputButton.dataset.generated === "false") {
@@ -36,7 +50,9 @@ function resetCopyText() {
 }
 
 function generatePassword() {
-  outputText.innerHTML = generate(20)
+  let length = Number(pwLengthRange.value)
+
+  outputText.innerHTML = generate(length)
 
   outputButton.dataset.generated = "true"
 
@@ -45,7 +61,13 @@ function generatePassword() {
 
 
 function generate(length) {
-  let pattern = /[a-zA-Z0-9_\-\+\.]/
+  let addPatternNumerical = document.getElementById('pw-character__numerical').checked
+  let addPatternSpecial = document.getElementById('pw-character__special').checked
+
+  let patternNumerical = addPatternNumerical ? "0-9" : ""
+  let patternSpecial = addPatternSpecial ? "_\.\,\!\?\+\-\=" : ""
+
+  let pattern = new RegExp("[a-zA-Z" + patternNumerical + patternSpecial + "]")
 
   return Array.apply(null, { 'length': length })
     .map(function() {

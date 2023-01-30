@@ -11,6 +11,27 @@
 
 <body>
   <div class="pw-section">
+    <div class="pw-length__container">
+      <label class="pw-length__label" for="">Password length</label>
+      <div class="pw-length__range-container">
+        <input id="pw-length" type="range" name="pw-length" class="pw-length__range" min="8" max="20"
+          autocomplete="off">
+        <span id="pw-length__range-indicator"></span>
+      </div>
+
+      <div class="pw-character__container">
+        <div class="pw-character__option">
+          <label for="pw-character__numerical">Numbers</label>
+          <input id="pw-character__numerical" name="pw-character__numerical" class="pw-character__checkbox"
+            type="checkbox">
+        </div>
+        <div class="pw-character__option">
+          <label for="pw-character__special">Special</label>
+          <input id="pw-character__special" name="pw-character__special" class="pw-character__checkbox" type="checkbox">
+        </div>
+      </div>
+
+    </div>
     <button id="output-button" data-generated="false" class="pw-section__output">
       <span id="output-text" class="pw-section__output__text">
       </span>

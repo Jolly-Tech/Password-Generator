@@ -59,29 +59,26 @@ function generatePassword() {
   resetCopyText()
 }
 
-
 function generate(length) {
-  let addPatternNumerical = document.getElementById('pw-character__numerical').checked
-  let addPatternSpecial = document.getElementById('pw-character__special').checked
+  let numerical = document.getElementById('pw-character__numerical').checked
+  let special = document.getElementById('pw-character__special').checked
 
-  let patternNumerical = addPatternNumerical ? "0-9" : ""
-  let patternSpecial = addPatternSpecial ? "_\.\,\!\?\+\-\=" : ""
-
-  let pattern = new RegExp("[a-zA-Z" + patternNumerical + patternSpecial + "]")
-
-  return Array.apply(null, { 'length': length })
-    .map(function() {
-      var result;
-      while (true) {
-        result = String.fromCharCode(getRandomByte());
-        if (pattern.test(result)) {
-          return result;
-        }
-      }
-    }, this)
-    .join('');
+  var result = "";
+  var pattern = new RegExp("[a-zA-Z" + (numerical ? "0-9" : "") + (special ? "_\.\,\!\?\+\-\=" : "") + "]");
+  for (var i = 0; i < length; i++) {
+    var char = String.fromCharCode(getRandomByte());
+    while (!pattern.test(char)) {
+      char = String.fromCharCode(getRandomByte());
+    }
+    result += char;
+  }
+  return result;
 }
 
+
+
+
+// random byte
 function getRandomByte() {
   // http://caniuse.com/#feat=getrandomvalues
   if (window.crypto && window.crypto.getRandomValues) {
